@@ -10,7 +10,7 @@ const LoginForm = ({ SignIn, error }) => {
   return (
     <form onSubmit={submitHandler}>
       <h1>Sign in</h1>
-      {(error = !'' ? <div className="error">{error}</div> : '')}
+      {(error =! '' ? <div className="error">{error}</div> : '')}
       <div className="form-group">
         <label htmlFor="name">Name</label>
         <input

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import LoginForm from '../form/LoginForm';
+import LoginForm from '../loginForm/LoginForm';
 import './Login.css';
 
 const Login = () => {
