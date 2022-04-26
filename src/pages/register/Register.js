@@ -1,18 +1,31 @@
 import React from 'react'
 
 const Register = () => {
-  const [newDetails, setNewDetails] = useState({userName: '', email: '', password: ''})
+
+  const existingUser = {
+    userName: 'Mikel',
+    email: 'mikel123@o2.pl',
+    password: 'mikel123'
+  }
+
+  const [newUser, setNewUser] = useState({userName: '', email: '', password: ''})
   
  const [regError, setRegError] = useState()
 
-  const submitHandler = (e) => {
-    e.preventDefault()
-    
-    setNewDetails({
-      userName: newDetails.userName,
-      email: newDetails.email,
-      password: newDetails.password
-    })
+  const SignUp = (newDetails) => {
+
+    if (
+      newDetails.userName != existingUser.userName || 
+      newDetails.email != existingUser.email
+    ) { 
+      setNewUser({
+        newUser: newDetails.newUser,
+        email: newDetails.email,
+        password: newDetails.password
+      });
+      } else {
+        setRegError('Username or email already exist.' )
+      }
   }
 
   return (
