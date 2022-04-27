@@ -1,25 +1,26 @@
 import React from 'react'
+import RegisterForm from '../registerForm/RegisterForm'
 
 const Register = () => {
 
   const existingUser = {
-    userName: 'Mikel',
+    username: 'Mikel',
     email: 'mikel123@o2.pl',
     password: 'mikel123'
   }
 
-  const [newUser, setNewUser] = useState({userName: '', email: '', password: ''})
+  const [newUser, setNewUser] = useState({username: '', email: '', password: ''})
   
  const [regError, setRegError] = useState()
 
   const SignUp = (newDetails) => {
 
     if (
-      newDetails.userName != existingUser.userName || 
+      newDetails.username != existingUser.username || 
       newDetails.email != existingUser.email
     ) { 
       setNewUser({
-        newUser: newDetails.newUser,
+        username: newDetails.username,
         email: newDetails.email,
         password: newDetails.password
       });
@@ -30,10 +31,10 @@ const Register = () => {
 
   return (
     <div>
-     {(newDetails.email =! '') ? (
+     {(newUser.email =! '') ? (
       <h1> Thank you for registering, sign in here </h1>
       ) : (
-        <loginForm newDetails={newDetails}/>
+        <RegisterForm SignUp={SignUp} regError={regError}/>
       )}
     </div>
   )
