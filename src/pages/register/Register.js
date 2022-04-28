@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import RegisterForm from '../registerForm/RegisterForm'
 
 const Register = () => {
@@ -16,8 +16,8 @@ const Register = () => {
   const SignUp = (newDetails) => {
 
     if (
-      newDetails.username != existingUser.username || 
-      newDetails.email != existingUser.email
+      newDetails.email != existingUser.email || 
+      newDetails.username != existingUser.username
     ) { 
       setNewUser({
         username: newDetails.username,
@@ -31,7 +31,7 @@ const Register = () => {
 
   return (
     <div>
-     {(newUser.email =! '') ? (
+     {(newUser.email != '') ? (
       <h1> Thank you for registering, sign in here </h1>
       ) : (
         <RegisterForm SignUp={SignUp} regError={regError}/>

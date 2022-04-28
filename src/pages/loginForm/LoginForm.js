@@ -41,7 +41,7 @@ const LoginForm = ({ SignIn, error }) => {
           value={details.password}
         />
       </div>
-      <input type="submit" value="LOGIN" />
+      <input type="submit" value="Sign In" />
       <div className="register">
         <p>
           Do not have account? <a href=""> Register here </a>.
