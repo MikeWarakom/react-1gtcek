@@ -4,11 +4,12 @@ import './Login.css';
 
 const Login = () => {
   const adminUser = {
+    username: 'Mikel',
     email: 'mikel123@o2.pl',
     password: 'mikel123',
   };
 
-  const [user, setUser] = useState({ name: '', email: '' });
+  const [user, setUser] = useState({ username: '', email: '' });
 
   const [error, setError] = useState();
 
@@ -16,12 +17,13 @@ const Login = () => {
     console.log(details);
 
     if (
-      details.email === adminUser.email &&
+      (details.emailOrUsername === adminUser.email || details.emailOrUsername === adminUser.username )&&
       details.password === adminUser.password
     ) {
       setUser({
-        name: details.name,
-        email: details.name,
+        /*tu dodac if @*/
+        name: details.username,
+        email: details.email,
       });
     } else {
       setError('Email or password does not match, check again.');
@@ -30,7 +32,7 @@ const Login = () => {
 
   const SignOut = () => {
     setUser({
-      name: '',
+      username: '',
       email: '',
     });
   };
@@ -39,7 +41,7 @@ const Login = () => {
     <div className="">
       {user.email != '' ? (
         <div>
-          <h1>Welcome {user.name} </h1>
+          <h1>Welcome {user.username} </h1>
           <button onClick={SignOut}>Sign out</button>
         </div>
       ) : (
